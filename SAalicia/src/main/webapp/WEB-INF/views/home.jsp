@@ -13,6 +13,57 @@
      <h1 class="w3-jumbo"><span class="w3-hide-small"></span> Home</h1>
   </header>
 
+<body>
+	<div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<%-- <h1>產品管理系統</h1> --%>
+		</div>
+		<div class="form-group">
+			分類:<select class="form-control" name="category_id"
+				value=${product.category_id}>
+				 <option>xx</option>
+				<option>xx</option>
+				<option>依價格排序</option>
+			</select> <a class="btn btn-sm btn-danger deleteBtn" href="pricesearch">確定</a>
+
+		</div>
+
+	<div class="container">
+	<!--  -->
+	<div class="row">
+		<div class='box'>
+			<div class="row">
+				<c:forEach items="${productList}" var="product2">
+					<div class="col-sm-4 col-md-4">
+					<div class="thumbnail" style="border: 0;">
+						<a href="profile"><img
+						   src="resources//fileUpload//${product2.id}.jpg"
+						   style="width: 300px; height: 300px;"></a>
+		</td> 
+						<p>${product.price}</p>
+					<div class="caption">
+						<p>${product.id}</p>
+						<a href="product">${product.desc}</a>
+						<p>
+						 <a href="product" class="btn btn-primary" role="button">Button</a>
+						 
+						</p>
+					</div>
+					</div>
+					</div>
+			  </c:forEach> <br>
+		</div>
+	</div>
+ </div>
+</div>
+</div>
+<!-- /.container -->
+<!-- Bootstrap core JavaScript================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+</body>
    
 
 </html>

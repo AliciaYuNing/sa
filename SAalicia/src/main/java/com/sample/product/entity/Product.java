@@ -2,7 +2,7 @@ package com.sample.product.entity;
 
 public class Product {
 	private long id;
-	private String category;// 類別
+	private String category_id;// 類別
 	private String desc;// 商品名稱
 	private int inventory;// 庫存
 	private int reorderPoint;// 安全庫存量
@@ -21,11 +21,11 @@ public class Product {
 	}
 
 	public String getCategory() {
-		return category;
+		return category_id;
 	}
 
 	public void setCategory(String category) {
-		this.category = category;
+		this.category_id = category;
 	}
 
 	public String getDesc() {

@@ -22,42 +22,28 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <!-- Icon Bar (Sidenav - hidden on small screens) -->
 <nav class="w3-sidenav w3-center w3-small w3-hide-small">
-  <a class="w3-padding-large w3-black" href="home"><%--這裡的home表示按下button時要回傳給controller的值 --%>
+  <a class="w3-padding-large w3-black" href="ManagerHome"><%--這裡的home表示按下button時要回傳給controller的值 --%>
     <i class="fa fa-home fa-3x"></i>
-    <p>首頁</p>
+    <p>管理者首頁</p>
   </a>
-  <a class="w3-padding-large w3-hover-black" href="SignIn">
+  <a class="w3-padding-large w3-hover-black" href="SalesOrderList">
     <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-    <p>登入/註冊</p>
+    <p>銷貨訂單</p>
   </a>
-  <a class="w3-padding-large w3-hover-black" href="ManagerHome">
+ 
+<a class="w3-padding-large w3-hover-black" href="ShippingList">
     <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
-    <p>ManagerHome</p>
+    <p>出貨單</p>
   </a>
   
-<a class="w3-padding-large w3-hover-black" href="ShoppingCar">
-    <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
-    <p>ShoppingCar</p>
-  </a>
-  
-  <a class="w3-padding-large w3-hover-black" href="Mobilephone">
+  <a class="w3-padding-large w3-hover-black" href="InventoryList">
     <i class="fa fa-mobile fa-3x" aria-hidden="true"></i>
-    <p>手機</p>
+    <p>存貨單</p>
   </a>
-  <a class="w3-padding-large w3-hover-black" href="Audioeq">
+  <a class="w3-padding-large w3-hover-black" href="CusServiceList">
     <i class="fa fa-music fa-3x" aria-hidden="true"></i>
-    <p>音響</p>
+    <p>客服單</p>
   </a>
-  <a class="w3-padding-large w3-hover-black" href="Charger">
-    <i class="fa fa-battery-full fa-2x"></i>
-    <p>行充</p>
-  </a>
-  <a class="w3-padding-large w3-hover-black" href="Mouse">
-    <i class="fa fa-mouse-pointer fa-2x" aria-hidden="true""></i>
-    <p>滑鼠</p>
-  </a>
+  
 </nav>
 </html>
-
-
-

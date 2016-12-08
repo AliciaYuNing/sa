@@ -6,16 +6,15 @@ import com.sample.product.entity.Product;
 
 public interface ProductDAO_a {
 	
-	public List<Product> getList();
-	public List<Product> getListArrival(String c);//category產品類別
-	public List<Product> getListSale(String c);
-	public List<Product> getListWomen(String c);
-	public List<Product> getListAccessorizies(String c);
-	public void insert(Product aProduct);
+	public List<Product> getListHome();
+	public List<Product> getListMobilephone(String c);
+	public List<Product> getListAudioeq(String c);
+	public List<Product> getListCharger(String c);
+	public List<Product> getListMouse(String c);
 	
-	
-
 	public Product get(long id);
+	
+	public void insert(Product aProduct);
 	
 	public void update(Product aProduct);
 	

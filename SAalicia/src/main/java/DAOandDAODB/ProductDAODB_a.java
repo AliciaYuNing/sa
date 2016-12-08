@@ -22,35 +22,35 @@ public class ProductDAODB_a implements ProductDAO_a {
 		this.dataSource = dataSource;
 	}
 
-	public List<Product> getList() {
+	public List<Product> getListHome() {
 		String sql = "SELECT * FROM product";
-		return getList(sql);
+		return getListHome(sql);
 	}
 
-	public List<Product> getListArrival(String c) {
-		String sql1 = "SELECT * FROM product where Category='" + c + "'";
+	public List<Product> getListMobilephone(String sql12) {
+		String sql1 = "SELECT * FROM product where category_id='" + 1 + "'";
 
-		return getList(sql1);
+		return getListMobilephone(sql1);
 	}
 
-	public List<Product> getListSale(String c) {
+	public List<Product> getListAudioeq(String c) {
 		String sql2 = "SELECT * FROM product where Category='" + c + "'";
-		return getList(sql2);
+		return getListAudioeq(sql2);
 
 	}
 
-	public List<Product> getListWomen(String c) {
+	public List<Product> getListCharger(String c) {
 		String sql3 = "SELECT * FROM product where Category='" + c + "'";
-		return getList(sql3);
+		return getListCharger(sql3);
 	}
 
-	public List<Product> getListAccessorizies(String c) {
+	public List<Product> getListMouse(String c) {
 		String sql4 = "SELECT * FROM product where Category='" + c + "'";
-		return getList(sql4);
+		return getListMouse(sql4);
 	}
 
 	// make it a generic method for different conditions
-	public List<Product> getList(String sql) {
+	public List<Product> getListHome(String sql) {
 
 		List<Product> productList = new ArrayList<Product>();
 		try {
@@ -62,8 +62,6 @@ public class ProductDAODB_a implements ProductDAO_a {
 				aProduct.setId(rs.getInt("ProductID"));
 				aProduct.setCategory(rs.getString("Category"));
 				aProduct.setDesc(rs.getString("Description"));
-				//aProduct.setSize(rs.getString("size"));
-				//aProduct.setColor(rs.getString("color"));
 				aProduct.setPrice(rs.getInt("price"));
 				aProduct.setInventory(rs.getInt("inventory"));
 				aProduct.setReorderPoint(rs.getInt("reorderPoint"));
@@ -91,14 +89,13 @@ public class ProductDAODB_a implements ProductDAO_a {
 	public void insert(Product aProduct) {
 
 		// remove first parameter when Id is auto-increment
-		String sql = "INSERT INTO product (Category, Description, price, Inventory, ReorderPoint) VALUES(?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO product (Category, Description, price, Inventory, ReorderPoint) VALUES(?, ?, ?, ?, ?)";
 		try {
 			conn = dataSource.getConnection();
 			smt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			//rs = smt.executeQuery();不確定用途自己加的
 			smt.setString(1, aProduct.getCategory());
 			smt.setString(2, aProduct.getDesc());
-			//smt.setString(3, aProduct.getSize());
-			//smt.setString(3, aProduct.getColor());
 			smt.setInt(3, aProduct.getPrice());
 			smt.setInt(4, aProduct.getInventory());
 			smt.setInt(5, aProduct.getReorderPoint());
@@ -135,8 +132,6 @@ public class ProductDAODB_a implements ProductDAO_a {
 				aProduct.setId(rs.getInt("productID"));
 				aProduct.setCategory(rs.getString("category"));
 				aProduct.setDesc(rs.getString("description"));
-				//aProduct.setSize(rs.getString("size"));
-				//aProduct.setColor(rs.getString("color"));
 				aProduct.setPrice(rs.getInt("price"));
 				aProduct.setInventory(rs.getInt("inventory"));
 				aProduct.setReorderPoint(rs.getInt("reorderPoint"));
@@ -167,8 +162,6 @@ public class ProductDAODB_a implements ProductDAO_a {
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, aProduct.getCategory());
 			smt.setString(2, aProduct.getDesc());
-			//smt.setString(3, aProduct.getSize());
-			//smt.setString(3, aProduct.getColor());
 			smt.setInt(3, aProduct.getPrice());
 			smt.setInt(4, aProduct.getInventory());
 			smt.setInt(5, aProduct.getReorderPoint());
@@ -201,8 +194,6 @@ public class ProductDAODB_a implements ProductDAO_a {
 			smt = conn.prepareStatement(sql);
 			smt.setString(1, aProduct.getCategory());
 			smt.setString(2, aProduct.getDesc());
-			//smt.setString(3, aProduct.getSize());
-			//smt.setString(3, aProduct.getColor());
 			smt.setInt(3, aProduct.getPrice());
 			smt.setInt(4, aProduct.getInventory());
 			smt.setInt(5, aProduct.getReorderPoint());
@@ -252,5 +243,8 @@ public class ProductDAODB_a implements ProductDAO_a {
 	public int count() {
 		return 0; // no longer needed
 	}
+
+
+	
 
 }
