@@ -42,15 +42,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   </a>
 </nav>
 
-    <%--<!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-      <ul class="w3-navbar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-       <li class="w3-left" style="width:25% !important"><a href="#">HOME</a></li>
-       <li class="w3-left" style="width:25% !important"><a href="#about">ABOUT</a></li>
-       <li class="w3-left" style="width:25% !important"><a href="#photos">PHOTOS</a></li>
-       <li class="w3-left" style="width:25% !important"><a href="#contact">CONTACT</a></li>
-      </ul>
-     </div>--%>
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <ul class="w3-navbar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <li class="w3-left" style="width:25% !important"><a href="#">HOME</a></li>
+    <li class="w3-left" style="width:25% !important"><a href="#about">ABOUT</a></li>
+    <li class="w3-left" style="width:25% !important"><a href="#photos">PHOTOS</a></li>
+    <li class="w3-left" style="width:25% !important"><a href="#contact">CONTACT</a></li>
+  </ul>
+</div>
 
 <!-- Page Content -->
 <div class="w3-padding-large" id="main">
