@@ -5,13 +5,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import org.omg.CORBA.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.evaair.springTest.HomeController;
+import com.sample.product.dao.ProductDAO;
+import com.sample.product.entity.Product;
+
+import com.sample.product.dao.ProductDAO;;
 
 /**
  * Handles requests for the application home page.
@@ -20,30 +29,34 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	//這段的意思是一run就顯示home那頁
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+	
+	
+	@RequestMapping(value = "/old", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
 		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
+        model.addAttribute("serverTime", formattedDate);
 
 		return "home";
 	}
-	//消費者觀的頁面們
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index() {
+		return getProductList();
+	}// getProductList
+		// list all products
+	
+	//消費者觀的頁面們======================================================================================
 	@RequestMapping(value = "/home", method = RequestMethod.GET)//這裡的home是看你從jsp那邊傳回來什麼,如果傳回home就執行以下方法
-	public ModelAndView Home()/*Home這個名字根本可以亂取*/ {
-		ModelAndView home = new ModelAndView("home");//這裡的home表示所連到的頁面
-		return home;
-	}
+	public ModelAndView getProductList() {
+		ModelAndView model = new ModelAndView("home");//這裡的home表示所連到的jsp頁面名稱
+		ProductDAO dao = (ProductDAO) context.getBean("productDAO");
+		List<Product> list = dao.getList();
+		model.addObject(list);
+		return model;
+	
+	    }
 	
 	@RequestMapping(value = "/ShoppingCar", method = RequestMethod.GET)
 	public ModelAndView ShoppingCar() {
@@ -77,7 +90,8 @@ public class HomeController {
 		ModelAndView model = new ModelAndView("Charger");
 		return model;
 	}
-    //管理者觀的頁面們
+    
+    //管理者觀的頁面們=====================================================================
     @RequestMapping(value = "/ManagerHome", method = RequestMethod.GET)
 	public ModelAndView ManagerHome() {
 		ModelAndView model = new ModelAndView("ManagerHome");

@@ -6,20 +6,7 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-	<bean id="account" class="com.sample.product.entity.Account"
-		scope="session">
-		<aop:scoped-proxy />
-	</bean>
-
-	<bean id="shoppingcart" class="com.sample.product.entity.ShoppingCart"
-		scope="session">
-		<aop:scoped-proxy />
-</bean>
-		<bean id="BuyList" class="com.sample.product.entity.BuyList"
-			scope="session">
-			<aop:scoped-proxy />
-			
-		</bean>
+	
 		<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
 			<property name="scopes">
 				<map>
@@ -39,9 +26,6 @@
 		</bean>
 
 		<bean id="productDAO" class="com.sample.product.dao.ProductDAODB">
-			<property name="dataSource" ref="dataSource" />
-		</bean>
-		<bean id="salesOrderDAO" class="com.sample.product.dao.SalesOrderDAOImpl">
 			<property name="dataSource" ref="dataSource" />
 		</bean>
 </beans>

@@ -3,6 +3,16 @@
 <%-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">--%>
 <!DOCTYPE html>
 <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- Bootstrap core CSS -->
+<link href="<c:url value="/resources/css/bootstrap.min.css" />"
+	rel="stylesheet">
+
+
+<title>Home</title>
+</head>
 <%@include file="navbar_cus.jsp" %>
 
 
@@ -15,46 +25,37 @@
 
 <body>
 	<div class="container theme-showcase" role="main">
-		<div class="jumbotron">
-			<%-- <h1>產品管理系統</h1> --%>
-		</div>
-		<div class="form-group">
-			分類:<select class="form-control" name="category_id"
-				value=${product.category_id}>
-				 <option>xx</option>
-				<option>xx</option>
-				<option>依價格排序</option>
-			</select> <a class="btn btn-sm btn-danger deleteBtn" href="pricesearch">確定</a>
-
-		</div>
 
 	<div class="container">
 	<!--  -->
 	<div class="row">
-		<div class='box'>
-			<div class="row">
-				<c:forEach items="${productList}" var="product2">
-					<div class="col-sm-4 col-md-4">
-					<div class="thumbnail" style="border: 0;">
-						<a href="profile"><img
-						   src="resources//fileUpload//${product2.id}.jpg"
-						   style="width: 300px; height: 300px;"></a>
-		</td> 
-						<p>${product.price}</p>
-					<div class="caption">
-						<p>${product.id}</p>
-						<a href="product">${product.desc}</a>
-						<p>
-						 <a href="product" class="btn btn-primary" role="button">Button</a>
-						 
-						</p>
+				<div class='box'>
+					<div class="row">
+						<c:forEach items="${productList}" var="product2">
+							<div class="col-sm-4 col-md-4">
+								<div class="thumbnail" style="border: 0;">
+									<a href="profile"><img
+										src="resources//fileUpload//${product2.id}.jpg"
+										style="width: 300px; height: 300px;"></a>
+									</td> 
+									<p>${product2.price}</p>
+									<div class="caption">
+										<p>${product2.id}</p>
+										<a href="product">${product2.desc}</a>
+										<p>
+											<a href="product" class="btn btn-primary" role="button">Button</a>
+											<a href="#" class="btn btn-default" role="button">Button</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+						<br>
+						
+
 					</div>
-					</div>
-					</div>
-			  </c:forEach> <br>
-		</div>
-	</div>
- </div>
+				</div>
+			</div>
 </div>
 </div>
 <!-- /.container -->
