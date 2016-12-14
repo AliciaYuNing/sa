@@ -16,6 +16,7 @@ import com.evaair.springTest.HomeController;
 import com.sample.product.dao.ProductDAO;
 import com.sample.product.dao.SalesOrderDAO;
 import com.sample.product.entity.Product;
+import com.sample.product.entity.SalesOrder;
 import com.sample.product.entity.ShoppingCar;
 
 /**
@@ -140,8 +141,8 @@ public class HomeController {
 			return model;
 		}
 
-	@RequestMapping(value = "/Submit", method = RequestMethod.POST)
-	public ModelAndView insertProduct(@ModelAttribute Product product) throws SQLException {
+	@RequestMapping(value = "/CheckOut", method = RequestMethod.POST)
+	public ModelAndView insertProduct(@ModelAttribute SalesOrder salesorder) throws SQLException {
 		ModelAndView model = new ModelAndView("home");
 		SalesOrderDAO dao = (SalesOrderDAO) context.getBean("SalesOrderDAO");
 		   

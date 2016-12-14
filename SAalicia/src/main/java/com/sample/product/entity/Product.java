@@ -2,9 +2,7 @@ package com.sample.product.entity;
 
 public class Product {
 	private long ShoppingId;
-	private long CustomerName;
-	private long CustomerAddress;
-	private long CustomerPhone;
+	
 	private long id;
 	private String category_id;// 類別
 	private String desc;// 商品名稱
@@ -96,28 +94,6 @@ public class Product {
 		ShoppingId = shoppingId;
 	}
 
-	public long getCustomerName() {
-		return CustomerName;
-	}
-
-	public void setCustomerName(long customerName) {
-		CustomerName = customerName;
-	}
-
-	public long getCustomerAddress() {
-		return CustomerAddress;
-	}
-
-	public void setCustomerAddress(long customerAddress) {
-		CustomerAddress = customerAddress;
-	}
-
-	public long getCustomerPhone() {
-		return CustomerPhone;
-	}
-
-	public void setCustomerPhone(long customerPhone) {
-		CustomerPhone = customerPhone;
-	}
+	
 
 }
